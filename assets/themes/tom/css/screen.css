@@ -95,7 +95,8 @@ ul.posts {
   .site .title a {
     color: #a00;
     text-decoration: none;
-  }
+	-webkit-font-smoothing: antialiased;
+}
 
   .site .title a:hover {
     color: black;
