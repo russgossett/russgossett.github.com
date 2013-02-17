@@ -1,0 +1,137 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<title>My Hello World App</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="format-detection" content="telephone=no"> 
+
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+
+<link rel="stylesheet" href="css/mobileFirst.css" type="text/css"/>
+<link rel="stylesheet" href="css/simpleUI.css" type="text/css"/>
+<style>
+p { color: red; }
+#intro_content { text-align: center; }
+#greetings { text-decoration: underline; }
+.big { font-size: 200%; }
+</style>
+
+<script>
+function lumos() {
+alert("I say Lumos!");
+}
+
+function avadacadabra() {
+var unlucky_person_name = $("#unlucky_person").val();
+$("#output").text("Avadacadabra " + unlucky_person_name);
+window.localStorage["last_spell"] = unlucky_person_name;
+}
+
+function geolocationSuccess(position) {
+alert('Latitude: ' + position.coords.latitude + '\n' +
+'Longitude: ' + position.coords.longitude + '\n' +
+'Accuracy: ' + position.coords.accuracy + '\n' +
+'Timestamp: ' + position.timestamp);
+}
+
+function geolocationError(posError) {
+console.log("Error - " + posError.code);
+console.log("Msg - " + posError.message);
+}
+
+var geolocationOptions = {
+maximumAge: 3000, 
+timeout: 1000,  
+enableHighAccuracy: true 
+};
+
+function attemptGeolocation() {
+navigator.geolocation.getCurrentPosition(
+geolocationSuccess, geolocationError, geolocationOptions
+);
+}
+
+function continuousGeolocation() {
+watchID = navigator.geolocation.getCurrentPosition(
+geolocationSuccess, geolocationError, geolocationOptions
+);
+}
+
+function clearWatch() {
+if (watchID != null) {
+navigator.geolocation.clearWatch(watchID);
+}
+}
+
+$(document).ready(function() {
+$("#spell_button").on('click', avadacadabra);
+var last_spell = window.localStorage["last_spell"];
+if (last_spell) {
+$("#unlucky_person").val(last_spell);
+}    
+});
+
+$(document).on(
+"pageinit", "#groovy_page", groovySetup
+);
+
+function groovySetup() {
+var page = $("#groovy_page");
+page.off("pageshow.myclass").off("pagehide.myclass");
+page.on("pageshow.myclass", continuousGeolocation);
+page.on("pagehide.myclass", clearWatch);
+}
+</script>
+
+</head>
+
+<body> 
+
+<!-- First page -->
+<div data-role="page" id="intro_page">
+<div data-role="header">
+<h1>Best Title Ever</h1>
+</div><!-- /header -->
+
+<div data-role="content" id="intro_content">	
+<p id="greetings" class="big">Hello world!</p>
+<p><img src="http://upload.wikimedia.org/wikipedia/commons/7/77/Peace_symbol.jpg" /></p>
+<p>Enter the funk machine: <a href="#groovy_page" class="big">here</a></p>
+
+<br /><br />
+
+<p>Cast a spell on 
+<input type="text" id="unlucky_person" /> 
+<input type="button" value="Avadacadbra!" id="spell_button" />
+</p>
+<p id="output"></p>
+</div><!-- /content -->
+
+<div data-role="footer">
+<h4>Best footer ever</h4>
+</div><!-- /footer -->
+</div><!-- /page -->
+
+<!-- Second page -->
+<div data-role="page" id="groovy_page">
+<div data-role="header">
+<h1>Groovy, Baby</h1>
+</div><!-- /header -->
+
+<div data-role="content">	
+<p>This page is the grooviest</p>
+<p>but if you want to go back you can click <a href="#intro_page">here</a></p>		
+</div><!-- /content -->
+
+<div data-role="footer">
+<h4></h4>
+</div><!-- /footer -->
+</div><!-- /page -->
+
+</body>
+</html>
+
