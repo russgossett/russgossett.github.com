@@ -34,7 +34,21 @@ The new HTML5 `DOCTYPE` is used like this:
 		    </body>
 	  </html>
 
-  
+Media Query Snippet
+
+    @media only screen and (min-width: 30em) {
+    /* STYLES FOR 480px */
+    }
+
+    @media only screen and (min-width: 43.75em) {
+    /* STYLES FOR 700px */
+    }
+
+    @media only screen and (min-width: 68.75em) {
+    /* STYLES FOR 1100px */
+    }
+
+
 More examples are coming soon.
 
 
