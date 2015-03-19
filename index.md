@@ -10,7 +10,8 @@ tagline: future can't come soon enough
 # Code Snippets
 
 The new HTML5 `DOCTYPE` is used like this:
-    
+
+```
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -19,14 +20,14 @@ The new HTML5 `DOCTYPE` is used like this:
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    
     <link rel="stylesheet" href="css/main.css">
     <script src="js/modernizr.js"></script>
-	</head>
+  </head>
   <body>
   -- stuff --
   </body>
 </html>
+```
 
 Media Query Snippet
 
