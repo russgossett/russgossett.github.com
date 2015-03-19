@@ -11,15 +11,15 @@ tagline: future can't come soon enough
 
 The new HTML5 `DOCTYPE` is used like this:
     
-`<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>HEllo</title>
+    <title></title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">`
-
+    <meta name="viewport" content="width=device-width">
+    
     <link rel="stylesheet" href="css/main.css">
     <script src="js/modernizr.js"></script>
 	</head>
