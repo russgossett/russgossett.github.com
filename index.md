@@ -11,7 +11,8 @@ tagline: future can't come soon enough
 
 The new HTML5 `DOCTYPE` is used like this:
 
-```<!DOCTYPE html>
+```
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -25,12 +26,6 @@ The new HTML5 `DOCTYPE` is used like this:
 <body>
 </body>
 </html>
-```
-
-```ruby
-require 'redcarpet'
-markdown = Redcarpet.new("Hello World!")
-puts markdown.to_html
 ```
 
 Media Query Snippet
