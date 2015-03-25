@@ -11,7 +11,7 @@ tagline: future can't come soon enough
 
 The new HTML5 `DOCTYPE` is used like this:
 
-```
+
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -26,7 +26,7 @@ The new HTML5 `DOCTYPE` is used like this:
     <body>
     </body>
     </html>
-```
+
 
 Media Query Snippet
 
